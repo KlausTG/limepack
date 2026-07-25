@@ -1,0 +1,17 @@
+---
+import CategoryPage from "../components/CategoryPage.astro";
+import Layout from "../layouts/Layout.astro";
+import content from "@/data/content";
+
+const { breadcrumbs, title, description, products, faqItems } = content;
+---
+
+<Layout>
+  <CategoryPage
+    breadcrumbs={breadcrumbs}
+    title={title}
+    description={description}
+    products={products}
+    faqItems={faqItems}
+  />
+</Layout>

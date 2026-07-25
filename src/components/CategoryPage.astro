@@ -1,0 +1,28 @@
+---
+import CategoryHero from "./CategoryHero";
+import type { Breadcrumbs } from "@/types/breadcrumb";
+import CategoryListProducts from "./list/CategoryListProducts";
+import Testimonials from "./Testimonials";
+import SectionFAQ from "./SectionFAQ";
+import type { Products } from "@/types/product";
+import type { FAQItems } from "@/types/faq";
+
+interface Props {
+  title: string;
+  description: string;
+  breadcrumbs: Breadcrumbs;
+  products: Products;
+  faqItems: FAQItems;
+}
+
+const { title, description, breadcrumbs, products, faqItems } = Astro.props;
+---
+
+<CategoryHero
+  breadcrumbs={breadcrumbs}
+  title={title}
+  description={description}
+/>
+<CategoryListProducts client:load products={products} />
+<SectionFAQ client:load items={faqItems} />
+<Testimonials />
